@@ -19,7 +19,7 @@ namespace Contacts_Managment.Controllers
             return View();
         }
 
-        public IActionResult Delete()
+        public IActionResult DeleteConfirm()
         {
             return View();
         }
