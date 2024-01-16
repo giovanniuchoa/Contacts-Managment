@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<ContactModel>
+@{
     ViewData["Title"] = "List of contacts";
 }
 
@@ -21,20 +22,24 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto@gmail</td>
-                <td>41 95959595</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-primary" asp-controller="Contact" asp-action="Edit">Edit</a>
-                        <a role="button" class="btn btn-danger" asp-controller="Contact" asp-action="DeleteConfirm">Delete</a>
-
-                    </div>
-                </td>
-            </tr>
-
+            @if(Model != null && Model.Any())
+            {
+                foreach (ContactModel contact in Model)
+                {
+                    <tr>
+                        <th scope="row">@contact.Id</th>
+                        <td>@contact.Name</td>
+                        <td>@contact.Email</td>
+                        <td>@contact.Number</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-router-id="@contact.Id" asp-controller="Contact" asp-action="Edit">Edit</a>
+                                <a role="button" class="btn btn-danger" asp-router-id="@contact.Id" asp-controller="Contact" asp-action="DeleteConfirm">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
 </div>
