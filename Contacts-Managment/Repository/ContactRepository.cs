@@ -20,9 +20,31 @@ namespace Contacts_Managment.Repository
             return contact;
         }
 
+        public ContactModel Edit(ContactModel contact)
+        {
+            ContactModel contactDB = ListById(contact.Id);
+
+            if (contactDB == null) throw new Exception("There was an error during contact update.");
+
+            contactDB.Name = contact.Name;
+            contactDB.Email = contact.Email;
+            contactDB.Number = contact.Number;
+
+            _context.Contact.Update(contactDB);
+            _context.SaveChanges();
+
+            return contactDB;
+
+        }
+
         public List<ContactModel> GetAll()
         {
             return _context.Contact.ToList();
+        }
+
+        public ContactModel ListById(int id)
+        {
+            return _context.Contact.FirstOrDefault(x => x.Id == id);
         }
 
     }

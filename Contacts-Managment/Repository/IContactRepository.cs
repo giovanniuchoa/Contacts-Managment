@@ -4,7 +4,9 @@ namespace Contacts_Managment.Repository
 {
     public interface IContactRepository
     {
-        List<ContactModel> GetAll();
         ContactModel Add(ContactModel contact);
+        ContactModel Edit(ContactModel contact);
+        List<ContactModel> GetAll();
+        ContactModel ListById(int id);
     }
 }
