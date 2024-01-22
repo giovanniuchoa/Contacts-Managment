@@ -23,9 +23,12 @@ namespace Contacts_Managment.Controllers
             return View();
         }
 
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
-            return View();
+
+            ContactModel contact = _contactRepository.ListById(id);
+
+            return View(contact);
         }
 
         public IActionResult DeleteConfirm()
@@ -34,10 +37,29 @@ namespace Contacts_Managment.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ContactModel contact) 
+        public IActionResult Edit(ContactModel contact) 
         {
-            _contactRepository.Add(contact);
-            return RedirectToAction("Index");
+            if(ModelState.IsValid) 
+            {
+                _contactRepository.Edit(contact);
+                return RedirectToAction("Index");
+            }
+
+            return View(contact);
+
+        }
+
+        [HttpPost]
+        public IActionResult Create(ContactModel contact)
+        {
+            if (ModelState.IsValid)
+            {
+                _contactRepository.Add(contact);
+                return RedirectToAction("Index");
+            }
+
+            return View(contact);
+
         }
     }
 }
