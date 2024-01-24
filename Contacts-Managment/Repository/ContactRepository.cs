@@ -20,6 +20,18 @@ namespace Contacts_Managment.Repository
             return contact;
         }
 
+        public bool Delete(int id)
+        {
+            ContactModel contactDB = ListById(id);
+
+            if (contactDB == null) throw new Exception("There was an error during contact delete.");
+
+            _context.Contact.Remove(contactDB);
+            _context.SaveChanges();
+
+            return true;
+        }
+
         public ContactModel Edit(ContactModel contact)
         {
             ContactModel contactDB = ListById(contact.Id);

@@ -31,9 +31,10 @@ namespace Contacts_Managment.Controllers
             return View(contact);
         }
 
-        public IActionResult DeleteConfirm()
+        public IActionResult DeleteConfirm(int id)
         {
-            return View();
+            ContactModel contact = _contactRepository.ListById(id);
+            return View(contact);
         }
 
         [HttpPost]
@@ -61,5 +62,12 @@ namespace Contacts_Managment.Controllers
             return View(contact);
 
         }
+
+        public IActionResult Delete(int id)
+        {
+            _contactRepository.Delete(id);
+            return RedirectToAction("Index");
+        }
+
     }
 }
