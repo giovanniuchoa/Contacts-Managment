@@ -24,3 +24,7 @@ body {
 .field-validation-error {
     color: #e01d1d;
 }
+
+.RedColor {
+    color: red;
+}
