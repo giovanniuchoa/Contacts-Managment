@@ -6,7 +6,7 @@
 <div class="text-center">
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-start" role="button">
-        <a class="btn btn-primary" role="button" asp-controller="Contact" asp-action="Create">Add</a>
+        <a class="btn btn-primary" role="button" asp-controller="Contact" asp-action="Create"><img class="iconButton" src="~/Images/add-user.png" /></a>
     </div>
 
     <h1 class="display-4">Contacts listing</h1>
@@ -33,8 +33,8 @@
                         <td>@contact.Number</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <a role="button" class="btn btn-primary" asp-route-id="@contact.Id" asp-controller="Contact" asp-action="Edit">Edit</a>
-                                <a role="button" class="btn btn-danger" asp-route-id="@contact.Id" asp-controller="Contact" asp-action="DeleteConfirm">Delete</a>
+                                <a role="button" class="btn btn-primary" asp-route-id="@contact.Id" asp-controller="Contact" asp-action="Edit"><img class="iconButton" src="~/Images/edit-tool.png" /></a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@contact.Id" asp-controller="Contact" asp-action="DeleteConfirm"><img class="iconButton" src="~/Images/delete-user.png" /></a>
                             </div>
                         </td>
                     </tr>

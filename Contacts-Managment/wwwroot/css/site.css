@@ -28,3 +28,18 @@ body {
 .RedColor {
     color: red;
 }
+
+.telImage {
+    margin-top: 5vh;
+    margin-bottom: 29vh;
+    width: 30%;
+    height: 30%;
+}
+
+.table {
+    margin-top: 8vh;
+}
+
+.iconButton {
+    width: 3vh;
+}
